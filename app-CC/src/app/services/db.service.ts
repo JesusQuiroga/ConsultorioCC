@@ -9,7 +9,17 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 export class DbService {
 
   constructor(private router: Router, private sqlite: SQLite) {
-    
+    this.sqlite.create({
+      name: 'datos.db',
+      location: 'default',
+      
+    }).then ((db: SQLiteObject) => {
+      db.executeSql('CREATE TABLE IF NOT EXISTS USUARIOS(MAIL VARCHAR(75), CONTRASENA VARCHAR(30))', []).then(() => {
+        console.log('TABLA CREADA OK');
+      }).catch(e => {
+        console.log('BASE DE DATOS NOK');
+      })
+    })
     
    }
 
