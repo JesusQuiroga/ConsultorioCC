@@ -1,0 +1,7 @@
+{
+  "name": "app-CC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
